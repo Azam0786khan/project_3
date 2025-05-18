@@ -1,3 +1,4 @@
+/*
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
@@ -28,41 +29,36 @@ import net.sf.jasperreports.engine.JasperReport;
  *
  * @author Azam Khan
  */
+/*
 @WebServlet(name = "JasperCtl", urlPatterns = { "/ctl/JasperCtl" })
 public class JasperCtl extends BaseCtl {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			
 			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
-			
 			String jasper = rb.getString("jasper");
-			
-			/* Compilation of jrxml file */
-			JasperReport jasperReport = JasperCompileManager
-					.compileReport(jasper);
 
+			// Compile jrxml to JasperReport object
+			JasperReport jasperReport = JasperCompileManager.compileReport(jasper);
+
+			// Get user from session
 			HttpSession session = request.getSession(true);
 			UserDTO dto = (UserDTO) session.getAttribute("user");
 			dto.getFirstName();
 			dto.getLastName();
 
+			// Report parameters
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("ID", 1l);
 			java.sql.Connection conn = null;
 
-			
-
-
+			// Determine datasource type
 			String Database = rb.getString("DATABASE");
-			
+
 			if ("Hibernate".equalsIgnoreCase(Database)) {
 				conn = ((SessionImpl) HibDataSource.getSession()).connection();
 			}
@@ -71,28 +67,27 @@ public class JasperCtl extends BaseCtl {
 				conn = JDBCDataSource.getConnection();
 			}
 
-			/* Filling data into the report */
+			// Fill report with data
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, conn);
 
-			/* Export Jasper report */
+			// Export report to PDF and write to response
 			byte[] pdf = JasperExportManager.exportReportToPdf(jasperPrint);
-
 			response.setContentType("application/pdf");
 			response.getOutputStream().write(pdf);
 			response.getOutputStream().flush();
 		} catch (Exception e) {
-
+			// You can optionally log the error here
 		}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		// Not used
 	}
 
 	@Override
 	protected String getView() {
 		return null;
 	}
-
 }
+*/
