@@ -97,4 +97,17 @@
 		<maven.compiler.source>11</maven.compiler.source>
 
 	</properties>
+	<repositories>
+  <repository>
+    <id>jaspersoft</id>
+    <url>https://jaspersoft.jfrog.io/artifactory/jaspersoft/third-party-ce-artifacts/</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+  </repository>
+</repositories>
+
 </project>
