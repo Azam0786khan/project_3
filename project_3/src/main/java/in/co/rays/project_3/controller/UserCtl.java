@@ -1,3 +1,4 @@
+
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
@@ -79,20 +80,21 @@ public class UserCtl extends BaseCtl {
 			pass = false;
 
 		}
-		if (DataValidator.isNull(request.getParameter("password"))) {
-			request.setAttribute("password", PropertyReader.getValue("error.require", "password"));
-			pass = false;
-		} else if (!DataValidator.isPasswordLength(request.getParameter("password"))) {
-			request.setAttribute("password", "Password should be 8 to 12 characters");
-			pass = false;
-		} else if (!DataValidator.isPassword(request.getParameter("password"))) {
-			request.setAttribute("password", "Password Must contain uppercase, lowercase, digit & special character");
-			pass = false;
-		}
-		if (DataValidator.isNull(request.getParameter("confirmPassword"))) {
-			request.setAttribute("confirmPassword", PropertyReader.getValue("error.require", "confirmPassword"));
-			pass = false;
-		}
+		/*
+		 * if (DataValidator.isNull(request.getParameter("password"))) {
+		 * request.setAttribute("password", PropertyReader.getValue("error.require",
+		 * "password")); pass = false; } else if
+		 * (!DataValidator.isPasswordLength(request.getParameter("password"))) {
+		 * request.setAttribute("password", "Password should be 8 to 12 characters");
+		 * pass = false; } else if
+		 * (!DataValidator.isPassword(request.getParameter("password"))) {
+		 * request.setAttribute("password",
+		 * "Password Must contain uppercase, lowercase, digit & special character");
+		 * pass = false; } if
+		 * (DataValidator.isNull(request.getParameter("confirmPassword"))) {
+		 * request.setAttribute("confirmPassword",
+		 * PropertyReader.getValue("error.require", "confirmPassword")); pass = false; }
+		 */
 		if (DataValidator.isNull(request.getParameter("role"))) {
 			request.setAttribute("role", PropertyReader.getValue("error.require", "role"));
 			pass = false;
@@ -109,11 +111,11 @@ public class UserCtl extends BaseCtl {
 			pass = false;
 		}
 
-		if (DataValidator.isNull(request.getParameter("emailId"))) {
-			request.setAttribute("emailId", PropertyReader.getValue("error.require", "email Id"));
+		if (DataValidator.isNull(request.getParameter("login"))) {
+			request.setAttribute("login", PropertyReader.getValue("error.require", "Login"));
 			pass = false;
-		} else if (!DataValidator.isEmail(request.getParameter("emailId"))) {
-			request.setAttribute("emailId", PropertyReader.getValue("error.email", "Email Id "));
+		} else if (!DataValidator.isEmail(request.getParameter("login"))) {
+			request.setAttribute("login", PropertyReader.getValue("error.email", "Login"));
 			pass = false;
 		}
 		if (DataValidator.isNull(request.getParameter("dob"))) {
@@ -128,12 +130,13 @@ public class UserCtl extends BaseCtl {
 			pass = false;
 		}
 		
-		if (!request.getParameter("password").equals(request.getParameter("confirmPassword"))
-				&& !"".equals(request.getParameter("confirmPassword"))) {
-			
-			request.setAttribute("confirmPassword","Confirm  Password  should  be matched.");
-			pass = false;
-		}
+		/*
+		 * if (!request.getParameter("password").equals(request.getParameter(
+		 * "confirmPassword")) && !"".equals(request.getParameter("confirmPassword"))) {
+		 * 
+		 * request.setAttribute(
+		 * "confirmPassword","Confirm  Password  should  be matched."); pass = false; }
+		 */
 		System.out.println(request.getParameter("dob"));
 		System.out.println("validate end " + pass+"................"+request.getParameter("id"));
 		System.out.println(request.getParameter("password"));
@@ -161,7 +164,7 @@ public class UserCtl extends BaseCtl {
 
 		dto.setLastName(DataUtility.getString(request.getParameter("lastName")));
 
-		dto.setLogin(DataUtility.getString(request.getParameter("emailId")));
+		dto.setLogin(DataUtility.getStringData(request.getParameter("login")));
 
 		dto.setPassword(DataUtility.getString(request.getParameter("password")));
 
@@ -204,7 +207,7 @@ public class UserCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String op = DataUtility.getString(request.getParameter("operation"));
-		System.out.println("-------------------------------------------------------------------------dopost run-------");
+		System.out.println("----dopost run----");
 		// get model
 		UserModelInt model = ModelFactory.getInstance().getUserModel();
 		long id = DataUtility.getLong(request.getParameter("id"));

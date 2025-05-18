@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -92,10 +91,13 @@ public class UserModelHibImp implements UserModelInt {
 		// TODO Auto-generated method stub
 		Session session = null;
 		Transaction tx = null;
+		System.out.println("entered in update");
 		UserDTO existDto = findByLogin(dto.getLogin());
+		System.out.println("existDto update " + existDto + "existDto.getId() "+ existDto.getId() + " dto.getId() " + dto.getId());
 		// Check if updated LoginId already exist
 		if (existDto != null && existDto.getId() != dto.getId()) {
-			// throw new DuplicateRecordException("LoginId is already exist");
+			System.out.println("entered in duplicate");
+			 throw new DuplicateRecordException("LoginId is already exist");
 		}
 
 		try {

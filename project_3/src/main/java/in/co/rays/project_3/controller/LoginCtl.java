@@ -22,9 +22,9 @@ import in.co.rays.project_3.util.DataValidator;
 import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
-
 /**
  * login functionality controller. perform login operation
+ * 
  * @author Azam Khan
  *
  */
@@ -57,7 +57,7 @@ public class LoginCtl extends BaseCtl {
 			request.setAttribute("password", PropertyReader.getValue("error.require", "password"));
 			pass = false;
 		}
-		System.out.println(pass+"/////");
+		System.out.println(pass + "/////");
 		return pass;
 
 	}
@@ -72,19 +72,18 @@ public class LoginCtl extends BaseCtl {
 
 	}
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		System.out.println(request.getParameter("login"));
-		
+
 		String op = request.getParameter("operation");
-		
+
 		UserModelInt model = ModelFactory.getInstance().getUserModel();
-		
+
 		HttpSession session = request.getSession(true);
-		
+
 		long id = DataUtility.getLong(request.getParameter("id"));
-		
+
 		if (OP_LOG_OUT.equals(op)) {
 			session = request.getSession();
 			session.invalidate();

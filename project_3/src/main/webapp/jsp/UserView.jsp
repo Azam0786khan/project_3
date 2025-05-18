@@ -1,3 +1,4 @@
+
 <%@page import="java.util.List"%>
 <%@page import="in.co.rays.project_3.controller.UserCtl"%>
 <%@page import="java.util.HashMap"%>
@@ -173,18 +174,40 @@ i.css {
 							<%
 									}
 								%>
-	<span class="pl-sm-5"><b>Email Id</b>
+
+
+								<%-- <%if (dto.getId()!=null) {%>
+								<span class="pl-sm-5"><b>Email Id</b> <span
+									style="color: red;">*</span></span> </br>
+								<div class="col-sm-12">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i>
+											</div>
+										</div>
+										<input type="text" class="form-control" id="defaultForm-email"
+											name="emailId" placeholder="email Id" readonly="readonly"
+											value="<%=DataUtility.getStringData(dto.getLogin())%>">
+									</div>
+								</div>
+								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("emailId", request)%></font></br>
+								<%} else {%> --%>
+
+								<span class="pl-sm-5"><b>Email Id</b>
 	<span style="color: red;">*</span></span> </br>							
 	<div class="col-sm-12">
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text" class="form-control" id="defaultForm-email" name="emailId" placeholder="email Id" value="<%=DataUtility.getStringData(dto.getLogin())%>">
+        <input type="text" class="form-control" id="defaultForm-email" name="login" placeholder="email Id"   value="<%=DataUtility.getStringData(dto.getLogin())%>">
       </div>
     </div>
-	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("emailId", request)%></font></br>
-								
+	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("login", request)%></font></br>
+							
+							<%-- <%} %> --%>
+							
 	<span class="pl-sm-5"><b>Mobile No</b>
 	<span style="color: red;">*</span></span> </br>
 	<div class="col-sm-12">
