@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>College View</title>
+<title>Product View</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style type="text/css">
@@ -53,11 +53,11 @@ i.css {
 
 								if (dto.getId() != null) {
 							%>
-							<h3 class="text-center text-primary">Update College</h3>
+							<h3 class="text-center text-primary">Update Product</h3>
 							<%
 								} else {
 							%>
-							<h3 class="text-center text-primary">Add College</h3>
+							<h3 class="text-center text-primary">Add Product</h3>
 							<%
 								}
 							%>
@@ -107,7 +107,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-university grey-text"
+												<i class="fa fa-tag grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
@@ -126,7 +126,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-address-book grey-text"
+												<i class="fa fa-dollar-sign grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
@@ -144,7 +144,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-address-card grey-text"
+												<i class="fa fa-th-list grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
